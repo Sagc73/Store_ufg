@@ -17,7 +17,6 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->unsignedBigInteger('stock')->default(0);
             $table->decimal('price',8,2)->default(0);
-
             $table->timestamps();
         });
     }
