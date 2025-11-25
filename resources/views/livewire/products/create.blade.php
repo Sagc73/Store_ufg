@@ -1,11 +1,11 @@
 <div>
-    <form wire:submit='store' class="space-y-4">
-        <x-form.input wire:model="name" label="Nombre" type="text" name="name" placeholder="Ingrese nombre del producto" />
-        <x-form.input wire:model="stock" label="Stock" type="text" name="stock" placeholder="Cantidad existente" />
-        <x-form.input  wire:model="price" label="Precio" type="text" name="price" placeholder="Ingrese nombre del producto" />
+    <form wire:submit='save' class="space-y-4">
+        <x-form.input wire:model="form.name" label="Nombre" type="text" name="form.name" placeholder="Ingrese nombre del producto" />
+        <x-form.input wire:model="form.stock" label="Stock" type="text" name="form.stock" placeholder="Cantidad existente" />
+        <x-form.input  wire:model="form.price" label="Precio" type="text" name="form.price" placeholder="Ingrese nombre del producto" />
         <div class="flex w-full max-w-md flex-col gap-1 text-on-surface dark:text-on-surface-dark">
             <label for="description" class="w-fit pl-0.5 text-sm">Descripción</label>
-            <textarea wire:model = 'description' id="description"
+            <textarea wire:model = 'form.description' id="form.description"
                 class="w-full rounded-radius border border-outline bg-surface-alt px-2.5 py-2 text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:cursor-not-allowed disabled:opacity-75 dark:border-outline-dark dark:bg-surface-dark-alt/50 dark:focus-visible:outline-primary-dark"
                 rows="3" placeholder="Descripción......."></textarea>
         </div>

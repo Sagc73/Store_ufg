@@ -1,6 +1,7 @@
 <div class="flex h-full w-full flex-1 flex-col gap-4 rounded-xl">
-    @if(session('success'))
-            <!-- success Alert -->
+
+    @if (session('success'))
+        <!-- success Alert, se llama variable desde backend, se enlaza con if -->
         <div x-data="{ alertIsVisible: true }" x-show="alertIsVisible"
             class="relative w-full overflow-hidden rounded-radius border border-success bg-surface text-on-surface dark:bg-surface-dark dark:text-on-surface-dark"
             role="alert" x-transition:leave="transition ease-in duration-300"
@@ -16,7 +17,7 @@
                 </div>
                 <div class="ml-2">
                     <h3 class="text-sm font-semibold text-success">Product message</h3>
-                    <p class="text-xs font-medium sm:text-sm">{{ session('success')}}
+                    <p class="text-xs font-medium sm:text-sm">{{ session('success') }}
                     </p>
                 </div>
                 <button type="button" @click="alertIsVisible = false" class="ml-auto" aria-label="dismiss alert">
@@ -30,8 +31,11 @@
     @endif
 
     <a href="{{ route('products.create') }}" wire:navigate
-        class="whitespace-nowrap rounded-radius bg-primary border border-primary px-4 py-2 text-center text-sm font-medium tracking-wide text-on-primary transition hover:opacity-75 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary active:opacity-100 active:outline-offset-0 disabled:cursor-not-allowed disabled:opacity-75 dark:border-primary-dark dark:bg-primary-dark dark:text-on-primary-dark dark:focus-visible:outline-primary-dark"
-        role="button">Crear producto</a>
+        class="w-fit self-start whitespace-nowrap rounded-radius bg-primary border border-primary px-4 py-2 text-center text-sm font-medium tracking-wide text-on-primary transition hover:opacity-75 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary active:opacity-100 active:outline-offset-0 disabled:cursor-not-allowed disabled:opacity-75 dark:border-primary-dark dark:bg-primary-dark dark:text-on-primary-dark dark:focus-visible:outline-primary-dark"
+        role="button">
+        Crear producto
+    </a>
+
     <div class="overflow-hidden w-full overflow-x-auto rounded-radius border border-outline dark:border-outline-dark">
         <table class="w-full text-left text-sm text-on-surface dark:text-on-surface-dark">
             <thead
@@ -41,7 +45,7 @@
                     <th scope="col" class="p-4">Nombre</th>
                     <th scope="col" class="p-4">Stock</th>
                     <th scope="col" class="p-4">Precio</th>
-                    <th scope="col" class="p-4">Fecha de solicitado</th>
+                    <th scope="col" class="p-4">Descripción</th>
                 </tr>
             </thead>
             <tbody class="divide-y divide-outline dark:divide-outline-dark">
@@ -51,7 +55,7 @@
                         <td class="p-4">{{ $product->name }}</td>
                         <td class="p-4">{{ $product->stock }}</td>
                         <td class="p-4">{{ $product->price }}</td>
-                        <td class="p-4">{{ $product->created_at }}</td>
+                        <td class="p-4">{{ $product->description}}</td>
                     </tr>
                 @empty
                     <tr>

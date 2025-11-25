@@ -13,7 +13,7 @@ class Index extends Component
     public function render()
     {
         return view('livewire.products.index',[
-            'products' => Product::paginate(20)
+            'products' => Product::paginate(15)
         ]);
     }
 }
