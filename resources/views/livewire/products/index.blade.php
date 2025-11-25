@@ -36,6 +36,21 @@
         Crear producto
     </a>
 
+    <div>
+        <div class="relative flex w-full max-w-xs flex-col gap-1 text-on-surface dark:text-on-surface-dark">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                stroke="currentColor" aria-hidden="true"
+                class="absolute left-2.5 top-1/2 size-5 -translate-y-1/2 text-on-surface/50 dark:text-on-surface-dark/50">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                    d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+            </svg>
+            <input type="search"
+                class="w-full rounded-radius border border-outline bg-surface-alt py-2 pl-10 pr-2 text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:cursor-not-allowed disabled:opacity-75 dark:border-outline-dark dark:bg-surface-dark-alt/50 dark:focus-visible:outline-primary-dark"
+                name="search" placeholder="Search" aria-label="search" />
+        </div>
+
+    </div>
+
     <div class="overflow-hidden w-full overflow-x-auto rounded-radius border border-outline dark:border-outline-dark">
         <table class="w-full text-left text-sm text-on-surface dark:text-on-surface-dark">
             <thead
@@ -57,14 +72,22 @@
                         <td class="p-4">{{ $product->stock }}</td>
                         <td class="p-4">{{ $product->price }}</td>
                         <td class="p-4">{{ $product->description }}</td>
-                        <td class="p-4">
+                        <td class="p-4 flex items-center gap-2">
                             <!--PROP FRONTEND EDITAR-->
-                            <a href="{{ route('products.edit', $product) }}" wire:navigate
-                                <button type="button" class="bg-transparent rounded-radius px-4 py-2 text-xs font-medium tracking-wide text-warning transition hover:opacity-75 text-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-warning active:opacity-100 active:outline-offset-0 disabled:opacity-75 disabled:cursor-not-allowed
-                                 dark:text-warning dark:focus-visible:outline-warning"
-                                 >Editar</button>
+                            <a href="{{ route('products.edit', $product) }}" wire:navigate <button type="button"
+                                class="bg-transparent rounded-radius px-4 py-2 text-xs font-medium tracking-wide text-warning transition hover:opacity-75 text-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-warning active:opacity-100 active:outline-offset-0 disabled:opacity-75 disabled:cursor-not-allowed
+                                 dark:text-warning dark:focus-visible:outline-warning">Editar</button>
                             </a>
-                            
+                            <!--PROP FRONTEND ELIMINAR-->
+                            <button wire:click='delete({{ $product }})' wire:confirm="¿Estas seguro de eliminar?"
+                                type="button"
+                                class="whitespace-nowrap bg-transparent rounded-radius 
+                                    border border-danger px-4 py-2 text-sm font-medium tracking-wide text-danger 
+                                    transition hover:opacity-75 text-center focus-visible:outline-2 
+                                    focus-visible:outline-offset-2 focus-visible:outline-danger 
+                                    active:opacity-100 active:outline-offset-0 disabled:opacity-75 
+                                    disabled:cursor-not-allowed dark:border-danger dark:text-danger 
+                                    dark:focus-visible:outline-danger">Eliminar</button>
                         </td>
                     </tr>
                 @empty
