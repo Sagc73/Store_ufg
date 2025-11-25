@@ -46,6 +46,7 @@
                     <th scope="col" class="p-4">Stock</th>
                     <th scope="col" class="p-4">Precio</th>
                     <th scope="col" class="p-4">Descripción</th>
+                    <th scope="col" class="p-4">Acciones</th>
                 </tr>
             </thead>
             <tbody class="divide-y divide-outline dark:divide-outline-dark">
@@ -55,7 +56,16 @@
                         <td class="p-4">{{ $product->name }}</td>
                         <td class="p-4">{{ $product->stock }}</td>
                         <td class="p-4">{{ $product->price }}</td>
-                        <td class="p-4">{{ $product->description}}</td>
+                        <td class="p-4">{{ $product->description }}</td>
+                        <td class="p-4">
+                            <!--PROP FRONTEND EDITAR-->
+                            <a href="{{ route('products.edit', $product) }}" wire:navigate
+                                <button type="button" class="bg-transparent rounded-radius px-4 py-2 text-xs font-medium tracking-wide text-warning transition hover:opacity-75 text-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-warning active:opacity-100 active:outline-offset-0 disabled:opacity-75 disabled:cursor-not-allowed
+                                 dark:text-warning dark:focus-visible:outline-warning"
+                                 >Editar</button>
+                            </a>
+                            
+                        </td>
                     </tr>
                 @empty
                     <tr>

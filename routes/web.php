@@ -2,6 +2,7 @@
 
 use App\Livewire\Products\Create;
 use App\Livewire\Products\Index;
+use App\Livewire\Products\Update;
 use App\Livewire\Settings\Appearance;
 use App\Livewire\Settings\Password;
 use App\Livewire\Settings\Profile;
@@ -39,3 +40,4 @@ Route::middleware(['auth'])->group(function () {
 
 Route::get('products', Index::class)->name('products.index');
 Route::get('products/create', Create::class)->name('products.create');
+Route::get('products/{product}/edit', Update::class)->name('products.edit');

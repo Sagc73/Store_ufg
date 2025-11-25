@@ -10,6 +10,12 @@
                 rows="3" placeholder="Descripción......."></textarea>
         </div>
         <button type="submit"
-            class="whitespace-nowrap rounded-radius bg-secondary border border-secondary px-4 py-2 text-xs font-medium tracking-wide text-on-secondary transition hover:opacity-75 text-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary active:opacity-100 active:outline-offset-0 disabled:opacity-75 disabled:cursor-not-allowed dark:bg-secondary-dark dark:border-secondary-dark dark:text-on-secondary-dark dark:focus-visible:outline-secondary-dark">Crear</button>
+            class="whitespace-nowrap rounded-radius bg-secondary 
+            border border-secondary px-4 py-2 text-xs font-medium tracking-wide text-on-secondary 
+            transition hover:opacity-75 text-center focus-visible:outline-2 focus-visible:outline-offset-2
+            focus-visible:outline-secondary active:opacity-100 active:outline-offset-0 disabled:opacity-
+            disabled:cursor-not-allowed dark:bg-secondary-dark dark:border-secondary-dark 
+            dark:text-on-secondary-dark dark:focus-visible:outline-secondary-dark"
+            >{{ request()->routeIs('products.create') ? 'Create product' : 'Update product'}}</button>
     </form>
 </div>
