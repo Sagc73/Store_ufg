@@ -1,10 +1,13 @@
 <?php
 
+use App\Livewire\Products\Create;
+use App\Livewire\Products\Index;
 use App\Livewire\Settings\Appearance;
 use App\Livewire\Settings\Password;
 use App\Livewire\Settings\Profile;
 use App\Livewire\Settings\TwoFactor;
 use Illuminate\Support\Facades\Route;
+//use App\Models\Livewire\Create;
 use Laravel\Fortify\Features;
 
 Route::get('/', function () {
@@ -33,3 +36,6 @@ Route::middleware(['auth'])->group(function () {
         )
         ->name('two-factor.show');
 });
+
+Route::get('products', Index::class)->name('products.index');
+Route::get('products/create', Create::class)->name('products.create');

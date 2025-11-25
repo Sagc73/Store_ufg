@@ -14,6 +14,7 @@
             <flux:navlist variant="outline">
                 <flux:navlist.group :heading="__('Platform')" class="grid">
                     <flux:navlist.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>{{ __('Dashboard') }}</flux:navlist.item>
+                    <flux:navlist.item icon="clipboard-document" :href="route('products.index')" :current="request()->routeIs('products.*')" wire:navigate>{{ __('Listado de equipo') }}</flux:navlist.item>
                 </flux:navlist.group>
             </flux:navlist>
 
@@ -126,6 +127,8 @@
         </flux:header>
 
         {{ $slot }}
+
+        
 
         @fluxScripts
     </body>
