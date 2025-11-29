@@ -11,17 +11,49 @@
                 <x-app-logo />
             </a>
 
+            <!-- INICIO DEL MENÚ DE NAVEGACIÓN -->
             <flux:navlist variant="outline">
+                
+                <!-- GRUPO 1: PLATAFORMA -->
                 <flux:navlist.group :heading="__('Platform')" class="grid">
-                    <flux:navlist.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>{{ __('Dashboard') }}</flux:navlist.item>
-                    <flux:navlist.item icon="clipboard-document" :href="route('products.index')" :current="request()->routeIs('products.*')" wire:navigate>{{ __('Listado de equipo') }}</flux:navlist.item>
+                    
+                    <flux:navlist.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>
+                        {{ __('Dashboard') }}
+                    </flux:navlist.item>
+
+                    <flux:navlist.item icon="clipboard-document" :href="route('products.index')" :current="request()->routeIs('products.*')" wire:navigate>
+                        {{ __('Listado de equipo') }}
+                    </flux:navlist.item>
+
+                    <!-- Ruta para Solicitar Préstamo -->
+                    <flux:navlist.item icon="computer-desktop" :href="route('loans.create')" :current="request()->routeIs('loans.create')" wire:navigate>
+                        {{ __('Solicitar Préstamo') }}
+                    </flux:navlist.item>
+
                 </flux:navlist.group>
+
+                <!-- GRUPO 2: ADMINISTRACIÓN (Visible para todos por ahora) -->
+                <flux:navlist.group :heading="__('Administración')" class="grid mt-4">
+                    
+                    <!-- Gestión de Inventario -->
+                    <flux:navlist.item icon="archive-box" :href="route('admin.equipments')" :current="request()->routeIs('admin.equipments')" wire:navigate>
+                        {{ __('Inventario UFG') }}
+                    </flux:navlist.item>
+
+                    <!-- Control de Préstamos y Devoluciones -->
+                    <flux:navlist.item icon="arrows-right-left" :href="route('admin.loans')" :current="request()->routeIs('admin.loans')" wire:navigate>
+                        {{ __('Control Préstamos') }}
+                    </flux:navlist.item>
+
+                </flux:navlist.group>
+
             </flux:navlist>
+            <!-- FIN DEL MENÚ DE NAVEGACIÓN -->
 
             <flux:spacer />
 
             <flux:navlist variant="outline">
-                <flux:navlist.item icon="folder-git-2" href="https://github.com/laravel/livewire-starter-kit" target="_blank">
+                <flux:navlist.item icon="folder-git-2" href="https://github.com/Sagc73/Store_ufg.git" target="_blank">
                 {{ __('Repository') }}
                 </flux:navlist.item>
 
@@ -127,8 +159,6 @@
         </flux:header>
 
         {{ $slot }}
-
-        
 
         @fluxScripts
     </body>
